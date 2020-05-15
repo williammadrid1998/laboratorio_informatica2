@@ -22,7 +22,7 @@ vector<string> separarString(const string& stringIngresado)
     return separado;
 }
 
-// FunciÛn para determinar si entre dos vectores de strings, hay por lo menos 2 elementos comunes.
+// Funci√≥n para determinar si entre dos vectores de strings, hay por lo menos 2 elementos comunes.
 bool existenElementosSimilares(vector<string> lista1, vector<string> lista2)
 {
     int elementosSimilares = 0;
@@ -67,31 +67,9 @@ vector<string> encontrarElementosComunes(vector<string> lista1, vector<string> l
     return unidos;
 }
 
-// ordenar por medio del metodo burbuja
-vector<string> ordenar(vector<string> lista1, vector<string> lista2)
-{
-    int ordenar = 0;
-    string aux;
-    vector<string> ordenado;
-
-    for (int i = 0; i < (int)lista1.size(); i++)
-    {
-        for (int j = 0; j < (int)lista2.size(); j++)
-        {
-            if (lista1[i] > lista2[j])
-            {
-                aux = lista1[i];
-                lista1[i] = lista2[j];
-                lista2[j] = aux;
-            }
-        }
-    }
-
-    return ordenado;
-}
 
 
-// Struct que representa los productos m·s populares comprados juntos
+// Struct que representa los productos m√°s populares comprados juntos
 struct Ventas
 {
     string articulos;
@@ -137,30 +115,6 @@ vector<Ventas> contarlos(vector<string> productos) {
 
 
 
-// MÈtodo que toma un vector de vector de strings y los junta en un solo vector de strings.
-vector<string> juntarStrings(vector<vector<string>> vectorAJuntar)
-{
-    vector<string> nuevoVector;
-
-    for (int i = 0; i < (int)vectorAJuntar.size(); i++)
-    {
-        string lista = "";
-
-        for (int j = 0; j < (int)vectorAJuntar[i].size(); j++)
-        {
-            lista += vectorAJuntar[i][j];
-
-            if (j != (int)vectorAJuntar[i].size() - 1)
-            {
-                lista += ",";
-            }
-        }
-
-        nuevoVector.push_back(lista);
-    }
-
-    return nuevoVector;
-}
 
 int main()
 {
@@ -187,13 +141,13 @@ int main()
     vector<vector<string>> v_nuevo2;
 
     // Ciclo doble para determinar si existen elementos comunes entre dos vectores.
-    // Se comienza con el primer vector, el cual es comparado con todos los dem·s, luego,
-    // el segundo se compara con todos los dem·s, excepto el primero y asÌ, eventualmente.
+    // Se comienza con el primer vector, el cual es comparado con todos los dem√°s, luego,
+    // el segundo se compara con todos los dem√°s, excepto el primero y as√≠, eventualmente.
     for (int i = 0; i < (int)v_nuevo.size(); i++)
     {
         for (int j = i + 1; j < (int)v_nuevo.size(); j++)
         {
-            // CondiciÛn que determina si existen por lo menos 2 elementos comunes entre los vectores.
+            // Condici√≥n que determina si existen por lo menos 2 elementos comunes entre los vectores.
             if (existenElementosSimilares(v_nuevo[i], v_nuevo[j]))
             {
                 v_nuevo2.push_back(encontrarElementosComunes(v_nuevo[i], v_nuevo[j]));
@@ -201,7 +155,7 @@ int main()
         }
     }
 
-    vector<string> productosComprados = juntarStrings(v_nuevo2);
+    
 
     std::vector<Ventas> productosOrdenados = contarlos(productosComprados);
 
